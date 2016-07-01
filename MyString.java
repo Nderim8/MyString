@@ -10,7 +10,7 @@ package MyString;
  */
 public class MyString {
 	
-	private String string;
+	public String string;
 
     /**
      * Empty constructor
@@ -39,7 +39,13 @@ public class MyString {
      */
     public int length() {
         //TODO: implement this method
-        return string.length();
+    	
+    	if(string == null)
+    		return 0;
+    	
+    	int length = string.length();
+    	
+        return length;
     }
 
     /**
@@ -63,7 +69,12 @@ public class MyString {
      */
     public boolean equals(MyString myString) {
         //TODO: implement this method
-        return false;
+    	
+    	
+    	if(this == myString)
+    		return true;
+    	else
+            return false;
     }
 
     /**
@@ -72,9 +83,13 @@ public class MyString {
      * @param str A string passed to check equality
      * @return True if the strings are equal, otherwise false
      */
-    public boolean equals(String str) {
+    public boolean equals(java.lang.String str) {
         //TODO: implement this method
-        return false;
+    	
+    	if(string.equals(str))
+    			return true;
+    	else
+               return false;
     }
 
 
@@ -85,7 +100,16 @@ public class MyString {
      */
     public int indexOf(char ch) {
         //TODO: implement this method
-        return -1;
+    	
+    	int index = -1;
+    	for(int i = 0; i < string.length(); i++)
+    	{
+    		if(string.charAt(i) == ch)
+    			index = i;
+    		
+    	}
+    	
+        return index;
     }
 
 
@@ -94,9 +118,14 @@ public class MyString {
      * @param str A given string to be appended
      * @return A new string which is the "sum" of two others
      */
-    public MyString append(MyString str) {
+    public String append(MyString str) {
         //TODO: implement this method
-        return null;
+    	
+    	String newString = string + "" + str.string; 
+    	
+    //	MyString nMyString = new MyString(newString);
+    	
+        return newString;
     }
 
 
@@ -107,9 +136,12 @@ public class MyString {
      * @param to The end index of subsequence
      * @return The specified subsequence
      */
-    public MyString subSequence(int from, int to) {
+    public String subSequence(int from, int to) {
         //TODO: implement this method
-        return null;
+    	
+    	String subString = string.substring(from, to);
+
+        return subString;
     }
 
 
@@ -120,9 +152,12 @@ public class MyString {
      * @param newChar The replacement character
      * @return The resulting string
      */
-    public MyString replace(char oldChar, char newChar) {
+    public String replace(char oldChar, char newChar) {
         //TODO: implement this method
-        return null;
+    			
+    	String str =  string.replace(oldChar, newChar);
+	
+          return str;
     }
 
 
